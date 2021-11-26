@@ -60,6 +60,7 @@ int maximum(int i , int j){
 }
 
 //fonction qui retourne distance entre 2points
+//Ici chaque point est representé dans le plan par 4 coordonnées (4D)
 float getDistance(Point a,Point b){
     float s=sqrt(pow(a.Courage-b.Courage,2)+pow(a.Loyaute-b.Loyaute,2)+ pow(a.Sagesse-b.Sagesse,2)+
                  pow(a.Malice-b.Malice,2));
@@ -160,7 +161,7 @@ void initialisePoints(P_Point points,int n){
 {
     
 int n=50;//points
-
+initialisePoints();
 
     return 0;
 }
