@@ -1,1 +1,1 @@
-# ProjetFouille
+Projet : l’algorithme PAM
