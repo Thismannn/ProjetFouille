@@ -2,17 +2,14 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
-#include <conio.h>
+//#include <conio.h>
 #include <string.h>
-
-
 //definition structure pour le groupe
 typedef struct Cluster {
 	int medoid;
 	int taille;
 }Cluster;
 typedef Cluster* P_Cluster ;
-
 //definition structure point
 typedef struct Point {
 	float Courage;
@@ -21,8 +18,6 @@ typedef struct Point {
 	float Malice;
 	P_Cluster cluster;
 }Point;
-typedef Point* P_Point ;
-
 //definition structure couleur
 typedef struct Color{
     int r;
@@ -30,21 +25,15 @@ typedef struct Color{
     int b;
 }Color;
 
+typedef Point* P_Point ;
 //prototypes des fonctions
-int minimun(int,int);
+int minimum(int,int);
 int maximum(int,int);
 float getDistance(Point,Point);
 void afficheCluster(Cluster);
 void initialisePoints(P_Point,int);
 void initialiseClusters(P_Point,P_Cluster,int,int);
 void initialiseDistance(float *distance[],P_Point,int);
-void affecterPointsMedoideProche(P_Point,P_Cluster, float *distance[], int, int);
-
-
-
-
-
-
 
 //Definition des fonctions
 //retourne le min de 2 valeur
@@ -83,8 +72,7 @@ void initialisePoints(P_Point points,int n){
 		int row = 0;
 		int column = 0;
 
-		while (fgets(buffer,
-					1024, fp)) {
+		while (fgets(buffer,1024, fp)) {
 			column = 0;
 			row++;
 
@@ -133,7 +121,7 @@ void initialisePoints(P_Point points,int n){
 
 				// Column 6
 				if (column == 5) {
-					printf("\tVille :");
+					printf("\tClan :");
 				}
 
 				printf("%s", value);
@@ -157,11 +145,45 @@ void initialisePoints(P_Point points,int n){
     } */
 }
 
+// fonction pour afficher un cluster
+void afficheCluster(P_Cluster cluster)
+{
+    printf("Medoid: %d\n",cluster->medoid);
+    printf("Taille: %d\n",cluster->taille);
+}
+//fonction d'initialisation de k groupes
+void initialiseClusters(P_Point points ,P_Cluster clusters ,int n ,int k){
+	int i;
+	for(i=0 ;i<k ;i++){
+		clusters[i].medoid=i;
+		clusters[i].taille=0;
+	}
+}
+
+//fonction initialisation des distances de touts les points
+void initialiseDistance(float *distance[],P_Point points,int n){
+	int i,j;
+	for(i=0;i<n;i++){
+			for(j=0;j<i+1;j++){
+				distance[i][j]=getDistance(points[i],points[j]);
+			}
+	}
+}
+
+
 	int main(int argc, char** argv)
 {
+	int n=50;//points
+	int k=6;//clusters
+	if(k>n)
+			exit(0);
+			
+	afficheCluster(P_Cluster.k);
     
-int n=50;//points
-initialisePoints();
+
+   
+
+
 
     return 0;
 }
