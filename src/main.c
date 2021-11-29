@@ -136,13 +136,6 @@ void initialisePoints(P_Point points,int n){
 		fclose(fp);
 	}
 
-	/*for(i=0;i<n;i++){
-        points[i].Courage=rand()%(40 + 1) + 1;
-        points[i].Loyaute=rand()%(30 + 1) + 1;
-        points[i].Sagesse=rand()%(30 + 1) + 1;
-        points[i].Malice =rand()%(30 + 1) + 1;
-
-    } */
 }
 
 // fonction pour afficher un cluster
@@ -177,8 +170,8 @@ void initialiseDistance(float *distance[],P_Point points,int n){
 	int k=6;//clusters
 	if(k>n)
 			exit(0);
-			
-	afficheCluster(P_Cluster.k);
+
+	afficheCluster(....);
     
 
    
