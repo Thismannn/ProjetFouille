@@ -54,7 +54,7 @@ int min(int i , int j){
     int m=(i<j) ? i:j;
 	return m;
 }
-//retourne le max de 2 valeur
+//retourne le maximum de 2 valeur
 int max(int i , int j){
     int m=(i>j) ? i:j;
 	return m;
