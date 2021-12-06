@@ -14,6 +14,7 @@ typedef struct Cluster {
 	int taille;
 }Cluster;
 typedef Cluster* P_Cluster ;
+
 //definition structure point
 typedef struct Point {
 	float Courage;
@@ -22,6 +23,8 @@ typedef struct Point {
 	float Malice;
 	P_Cluster cluster;
 }Point;
+typedef Point* P_Point ;
+
 //definition structure couleur
 typedef struct Color{
     int r;
@@ -29,10 +32,13 @@ typedef struct Color{
     int b;
 }Color;
 
-typedef Point* P_Point ;
+
+#define maximum(x, y) (x > y ? x : y)
+#define minimum(x, y) (x < y ? x : y)
+
 //prototypes des fonctions
-int minimum(int,int);
-int maximum(int,int);
+//int minimum(int,int);
+//int maximum(int,int);
 float DistanceManathan(Point,Point);
 void afficheCluster(Cluster);
 void initPoints(P_Point,int);
@@ -40,4 +46,4 @@ void initClusters(P_Point,P_Cluster,int,int);
 void initDistance(float *distance[],P_Point,int);
 void affecterPointsMedoideProche(P_Point,P_Cluster, float *distance[], int, int);
 Cluster selectBestClusterMedoids(P_Point, float *distance[], Cluster , int , SDL_Renderer * ,Color);
-void pam( int, int, SDL_Window*);
+void AlgoPAM( int, int, SDL_Window*);
